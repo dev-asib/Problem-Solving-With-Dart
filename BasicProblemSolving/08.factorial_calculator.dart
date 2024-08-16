@@ -1,26 +1,24 @@
-//Factorial Calculator: Implement a function to calculate the factorial of a given number.
-
 import 'dart:io';
-void main(){
-  stdout.write('Enter any integer number = ');
-  int? number = int.tryParse(stdin.readLineSync()!);
-  if(number is int){
-    if(number>=0){
-      int factorialResult = 1;
-      if(number>0){
-        for(int i = number; i>=1; i--){
-          factorialResult = factorialResult * i;
-        }
-        print("Factorial $number! = $factorialResult");
-      } else if(number==0){
-        factorialResult=1;
-        print("Factorial $number! = $factorialResult");
-      }
 
+void main(){
+  stdout.write("Enter n = ");
+  int? n = int.tryParse(stdin.readLineSync()!);
+
+  BigInt factOfn=BigInt.one;
+
+  if(n!=null){
+    if(n>=0){
+      for(int i = 1; i<=n; i++){
+        factOfn = factOfn*BigInt.from(i);
+      }
+      print(factOfn);
+    } else if(n==0){
+      print(1);
     } else{
-      print("The number should be greater than or equal to 0");
+      print("No negative number can be factorial.");
     }
   } else{
-    print("Enter a valid number");
+    print("Enter a valid value");
   }
+
 }
